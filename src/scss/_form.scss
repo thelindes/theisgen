@@ -1,0 +1,95 @@
+.form-container {
+    max-width: 100%;
+}
+
+.form-container input[type="email"],
+.form-container input[type="text"] {
+    display: flex;
+    min-width: 250px;
+    max-width: 100%;
+    height: 40px;
+    padding-left: 5px;
+    padding-right: 5px;
+    font-family: 'Rubik', sans-serif;
+    font-size: 14px;
+}
+
+.form-container textarea {
+    max-width: 100%;
+    padding: 15px 5px 0px 5px;
+    font-family: 'Rubik', sans-serif;
+    font-size: 14px;
+}
+
+.form-container input:-webkit-autofill,
+.form-container input:-webkit-autofill:hover, 
+.form-container input:-webkit-autofill:focus
+.form-container textarea:-webkit-autofill,
+.form-container textarea:-webkit-autofill:hover
+.form-container textarea:-webkit-autofill:focus,
+.form-container select:-webkit-autofill,
+.form-container select:-webkit-autofill:hover,
+.form-container select:-webkit-autofill:focus {
+ border: 1px solid green;
+  -webkit-text-fill-color: green;
+  -webkit-box-shadow: 0 0 0px 0px #FFF outset;
+  -webkit-height: 40px;
+  -webkit-font-size: 14px !important;
+  -webkit-padding-left: 5px;
+  -webkit-padding-right: 5px;
+  -webkit-font-weight: 400;
+  transition: background-color 5000s ease-in-out 0s;
+
+}
+
+.form-container :focus {
+    outline: var(--text-secondary-color);
+    outline-offset: -2px;
+    outline-width: 5px;
+    outline-style: auto;
+}
+
+.form-container input[type="button" i], 
+.form-container input[type="submit" i], 
+.form-container input[type="reset" i], 
+.form-container input[type="file" i]::-webkit-file-upload-button, 
+.form-container button {
+    border: 1px solid var(--black);
+    background-color: var(--button-primary-color);
+    width: 100px;
+    height: 40px;
+}
+
+.form-container input[type="button" i]:focus, 
+.form-container input[type="submit" i]:focus, 
+.form-container input[type="reset" i]:focus, 
+.form-container input[type="file" i]:focus::-webkit-file-upload-button, 
+.form-container button:focus {
+ border: 1px solid var(--black);
+    background-color: var(--button-primary-color);
+    width: 100px;
+    height: 40px;
+}
+
+.form-container input[type="button" i]:hover, 
+.form-container input[type="submit" i]:hover, 
+.form-container input[type="reset" i]:hover, 
+.form-container input[type="file" i]:hover::-webkit-file-upload-button, 
+.form-container button:hover {
+    border: 1px solid var(--black);
+    color: var(--black);
+    background-color: var(--background-reg);
+    -webkit-box-shadow: 1px 1px 20px var(--button-secondary-color);
+    cursor: pointer;
+}
+
+span[role="alert"]{
+    margin-top: 10px;
+}
+
+.separator {
+    border: 0.5px solid var(--searchbar);
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}

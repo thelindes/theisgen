@@ -1,0 +1,176 @@
+/*
+Theme Name: Forst, Garten- & Reinigungsgeräte Theisgen
+Author: Patrick Lindner
+Description: Simple gardening shop theme.
+Version: 0.0.1
+Tags: theisgen, garden, urban, kärcher
+*/
+
+:root {
+  --light-brown: #ddd294;
+  --brown: #956a57;
+  --dark-green: #668149;
+  --green: #8aa866;
+  --lighter-green: #bccd86;
+  --light-green: #dbeabf;
+  --dark-blue: #1f263f;
+  --gray: #c8c3c0;
+  --light-gray: #eeeeee;
+  --middle-gray: hsl(0, 0%, 53%);
+  
+    
+    
+  --white: #ffffff;
+  --black: #32373c;
+    
+  --background-reg: var(--white);    
+  --background-nav: var(--light-gray);
+  --searchbar: #d3d3d3;
+  --searchbar-secondary: var(--green);
+  --card: var(--white);
+  --shadow: var(--searchbar);
+  --headline: var(--text-primary-color);
+  --text-primary-color: var(--middle-gray);
+  --text-secondary-color: var(--green);
+  --button-primary-color: var(--white);
+  --button-secondary-color:  var(--gray);
+  --primary-font: Rubik;
+  --background-footer: #F8F8F8;
+    
+ /*----- values vars -----*/
+    
+  --navigation-spacer-content: 250px;
+  --navigation-spacer-menu: -250px;
+    
+    
+  text-decoration: none;
+  list-style:none;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+}
+
+.icon {
+    color: var(--text-primary-color);
+    display: flex;
+    height: 100%;
+    align-items: center;
+}
+
+.icon:hover {
+    color: var(--text-secondary-color);
+    cursor:pointer;
+}
+
+.menu-size {
+    color: var(--text-primary-color);
+    font-size: 24px;
+    margin-bottom: -8px;
+}
+
+.s {
+    font-size: 20px;
+}
+
+.m {
+    font-size: 30px;
+}
+
+.l {
+    font-size: 45px;
+}
+
+.xl {
+    font-size: 70px;
+    font-weight: 600;
+}
+
+h1 {
+    font-family: 'Rubik', sans-serif;
+    font-size: 50px;
+    font-weight: 600;
+}
+
+h2, b, strong {
+    font-family: 'Rubik', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+h2 {
+    text-transform: uppercase;
+    color: var(--headline);
+    line-height: 25px;
+}
+
+h3 {
+    text-transform: none;
+    letter-spacing: normal;
+    font-style: normal;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+a,
+p {
+    font-family: 'Rubik', sans-serif;
+    font-size: 14px;
+}
+
+p {
+    line-height: 25px;
+}
+
+a.center-logo {
+    color: transparent;
+}
+
+.wrapper {
+    display:flex;
+    flex-direction: column;
+    min-width: 100%;
+    overflow: hidden;
+}
+
+button, 
+button:hover,
+button:active,
+button:focus{
+    border: none;
+    color: none;
+    background-color: transparent;
+    box-shadow: none;
+    outline: none;
+    
+}
+
+button:hover{
+    cursor: pointer;
+}
+
+.master-slider-parent {
+    position: inherit !important;
+  margin-top: 95px;
+}
