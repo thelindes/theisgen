@@ -1,6 +1,5 @@
 <?php get_header(); ?> 
     <div class="content">
-
         <h2 class="entry-title"><?php the_title(); ?></h2> <!-- Page Title -->
     <?php
     // TO SHOW THE PAGE CONTENTS
