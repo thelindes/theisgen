@@ -8,7 +8,7 @@
 	<meta name="description" content="">
 	<meta name="author" content="">
 
-	<title>Blog Template for Bootstrap</title>
+	<title>Theisgen.de</title>
 	<?php wp_head();?>
 </head>
 
