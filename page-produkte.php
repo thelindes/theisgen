@@ -68,8 +68,10 @@
                     <?php if ($links) :?>
                         <?php if (in_array('mietgeraete', $links) == false): ?>
                             <div class="col-sm-4 col-md-3 col-6 product-content <?php echo implode(' ', $links) ?>">  
-                              <?php if ($product_img_src): ?>
+                            <?php if ($product_img_src): ?>
+                                <a href="<?php echo get_permalink($post)?>">
                                  <img src="<?php echo $product_img_src; ?>" alt="<?php the_title(); ?>">
+                                </a>
                               <?php endif;?>
                                 <h3 class="lowercase"><?php the_title(); ?></h3>
                                 <p class="price-tag"><?php echo $product_price; ?> €</p>
@@ -78,7 +80,9 @@
                     <?php else: ?>
                     <div class="col-sm-4 col-md-3 col-6 product-content <?php echo implode(' ', $links) ?>">  
                             <?php if ($product_img_src): ?>
+                            <a href="<?php echo get_permalink($post)?>">
                                 <img src="<?php echo $product_img_src; ?>" alt="<?php the_title(); ?>">
+                            </a>
                             <?php endif;?>
                             <h3 class="lowercase"><?php the_title(); ?></h3>
                             <!--<p><?php echo $product_info; ?></p>-->

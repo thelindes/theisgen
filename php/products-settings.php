@@ -33,7 +33,6 @@ function product_post_type() {
   ) );
 }
 add_action( 'init', 'product_post_type', 0 );
-
 //Taxonomy for Products
 function products_taxonomy() {
   
