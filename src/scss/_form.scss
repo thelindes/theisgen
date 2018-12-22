@@ -5,8 +5,7 @@
 .form-container input[type="email"],
 .form-container input[type="text"] {
     display: flex;
-    min-width: 250px;
-    max-width: 100%;
+    width: 100%;
     height: 40px;
     padding-left: 5px;
     padding-right: 5px;
@@ -15,7 +14,7 @@
 }
 
 .form-container textarea {
-    max-width: 100%;
+    width: 100%;
     padding: 15px 5px 0px 5px;
     font-family: 'Rubik', sans-serif;
     font-size: 14px;
