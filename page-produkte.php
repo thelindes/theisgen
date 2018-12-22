@@ -52,12 +52,8 @@
                 
                         $terms = get_the_terms($post->ID, 'products_taxonomy');
                         $product_price = get_field('price');
-                        /*$product_price_class = 'price-'. $product_price;
-                        console_log($product_price_class);*/
                         $product_info = get_field('prod-info');
       
-          /*      console_log($terms[0]->slug);*/
-                               
                 if($terms){
                     $links = array();
                     
@@ -71,28 +67,28 @@
                   
                     <?php if ($links) :?>
                         <?php if (in_array('mietgeraete', $links) == false): ?>
-
-                            <div class="col-md-3 col-12 product-content <?php echo implode(' ', $links) ?>">  
-                              <?php if ($product_img_src): ?>
+                            <div class="col-sm-4 col-md-3 col-6 product-content <?php echo implode(' ', $links) ?>">  
+                            <?php if ($product_img_src): ?>
+                                <a href="<?php echo get_permalink($post)?>">
                                  <img src="<?php echo $product_img_src; ?>" alt="<?php the_title(); ?>">
+                                </a>
                               <?php endif;?>
                                 <h3 class="lowercase"><?php the_title(); ?></h3>
-                                <!--<p><?php echo $product_info; ?></p>-->
                                 <p class="price-tag"><?php echo $product_price; ?> €</p>
                             </div>   
                         <?php endif; ?>
                     <?php else: ?>
-                            <div class="col-md-3 col-12 product-content <?php echo implode(' ', $links) ?>">  
-                              <?php if ($product_img_src): ?>
-                                 <img src="<?php echo $product_img_src; ?>" alt="<?php the_title(); ?>">
-                              <?php endif;?>
-                                <h3 class="lowercase"><?php the_title(); ?></h3>
-                                <!--<p><?php echo $product_info; ?></p>-->
-                                <p class="price-tag"><?php echo $product_price; ?> €</p>
-                            </div>   
-                    
+                    <div class="col-sm-4 col-md-3 col-6 product-content <?php echo implode(' ', $links) ?>">  
+                            <?php if ($product_img_src): ?>
+                            <a href="<?php echo get_permalink($post)?>">
+                                <img src="<?php echo $product_img_src; ?>" alt="<?php the_title(); ?>">
+                            </a>
+                            <?php endif;?>
+                            <h3 class="lowercase"><?php the_title(); ?></h3>
+                            <!--<p><?php echo $product_info; ?></p>-->
+                            <p class="price-tag"><?php echo $product_price; ?> €</p>
+                        </div>   
                     <?php endif; ?>
-                
                 <?php endforeach; ?>
             </div>
         </div>

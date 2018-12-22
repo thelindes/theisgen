@@ -11,8 +11,6 @@
             </h2>
 
         </div>
-
-    
     <div class="col-6">
         <div class="thumbnail-container">
                <?php if ( has_post_thumbnail() ) : ?>

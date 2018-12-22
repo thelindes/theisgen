@@ -58,7 +58,7 @@ function styles() {
       browsers: ['last 2 versions'],
       cascade: false
     }))
-    /*.pipe(cleanCSS()) <-- activate for deploying */ 
+    .pipe(cleanCSS()) 
     .pipe(rename({
       basename: 'style',
       suffix: '.min'
@@ -91,8 +91,6 @@ function watch() {
   gulp.watch(paths.fonts.src, fonts).on("change", reload);
   gulp.watch(paths.imgs.src, images).on("change", reload);
 }
-
-
 
 //dev
 var dev = gulp.series(clean, gulp.parallel(styles, scripts, images, fonts), watch);

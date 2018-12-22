@@ -1,13 +1,23 @@
+/*slider animation*/
+
+document.addEventListener('DOMContentLoaded', function () {
+    var rewind = document.querySelector('.js_slider');
+
+    lory(rewind, {
+        rewind: true
+    });
+});
+
 jQuery(
     function($) {
-/*
-    var $navigation = $('.navigation');
-    var $contentWrapper = $('.content-wrapper');
-
-    if (localStorage.getItem('menuOpen') === 'true') {
-        $navigation.addClass('open-no-animation');
-        $contentWrapper.addClass('navigation-open-no-animation');
-    }*/
+        /*
+        var $navigation = $('.navigation');
+        var $contentWrapper = $('.content-wrapper');
+        
+        if (localStorage.getItem('menuOpen') === 'true') {
+            $navigation.addClass('open-no-animation');
+            $contentWrapper.addClass('navigation-open-no-animation');
+        }*/
 
     $('#search-button').on('click', function() {
         var $search = $('.search-box');
@@ -72,7 +82,6 @@ jQuery(
             $search.toggleClass('open');  
     });*/
     
-    
-        
+
     }
 );
