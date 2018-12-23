@@ -79,10 +79,10 @@ body {
     align-items: center;
 }
 
-.icon:hover {
+/* .icon:hover {
     color: var(--text-secondary-color);
     cursor:pointer;
-}
+} */
 
 .menu-size {
     color: var(--text-primary-color);
@@ -120,12 +120,14 @@ h2, b, strong {
 }
 
 h2 {
+    font-family: 'Rubik', sans-serif;
     text-transform: uppercase;
     color: var(--headline);
     line-height: 25px;
 }
 
 h3 {
+    font-family: 'Rubik', sans-serif;
     text-transform: none;
     letter-spacing: normal;
     font-style: normal;
@@ -145,6 +147,7 @@ p {
 
 a.center-logo {
     color: transparent;
+    
 }
 
 .wrapper {

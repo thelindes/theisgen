@@ -48,6 +48,7 @@
     outline-style: auto;
 }
 
+.index input[type="button" i],
 .form-container input[type="button" i], 
 .form-container input[type="submit" i], 
 .form-container input[type="reset" i], 
@@ -59,6 +60,7 @@
     height: 40px;
 }
 
+.index input[type="button" i]:focus,
 .form-container input[type="button" i]:focus, 
 .form-container input[type="submit" i]:focus, 
 .form-container input[type="reset" i]:focus, 
@@ -66,10 +68,12 @@
 .form-container button:focus {
  border: 1px solid var(--black);
     background-color: var(--button-primary-color);
+    outline: var(--button-secondary-color);
     width: 100px;
     height: 40px;
 }
 
+.index input[type="button" i]:hover,
 .form-container input[type="button" i]:hover, 
 .form-container input[type="submit" i]:hover, 
 .form-container input[type="reset" i]:hover, 

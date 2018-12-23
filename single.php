@@ -4,9 +4,23 @@
 	 $product_price = get_field('price');
 	 $product_description = get_field('prod-description');
 	 $product_details = get_field('prod-details');
+	 $terms = wp_get_post_terms( $this_post->ID, 'products_taxonomy');
 	?>
 	<div class="content">
 		<div class="container-fluid product-single">
+			<div class="row">
+ 				<div class="col-lg-6 col-12">
+ 					<a href=""><span class="back-button"><span></span><h2>Produktübersicht</h2></span></a>
+				</div>
+				<div class="col-lg-6 col-12 taxonomy">
+					<ul>
+					 <?php foreach($terms as $term):
+						 ?>
+						 <li><?php echo $term->name ?></li>
+						 <?php endforeach; ?>
+					 </ul>
+				</div>
+			</div>
 			<div class="row">
 				<div class="col-lg-6 col-12">
 					<div class="slider js_slider">
@@ -38,7 +52,7 @@
 					<h3 class="single-product-title"><?php echo $product_title ?></h2>
 					<p class="price-tag"><?php echo $product_price?> €</p>
 					<?php if($product_description): ?>
-					<p><?php echo $product_description; ?></p>
+					<p class="product-description"><?php echo $product_description; ?></p>
 					<?php endif; ?>
 					<?php if($product_details) : ?>
 					<h2>Details</h2>
