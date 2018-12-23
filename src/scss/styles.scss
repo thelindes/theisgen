@@ -2,7 +2,7 @@
 
 @import "../../node_modules/bootstrap/scss/bootstrap-reboot.scss";
 @import "../../node_modules/bootstrap/scss/bootstrap-grid.scss";
-@import "../../node_modules/bootstrap/scss/_utilities.scss";
+/* @import "../../node_modules/bootstrap/scss/_utilities.scss"; */
 
 @import "_basic_style.scss";
 @import "_blog.scss";
@@ -12,6 +12,6 @@
 @import "_form.scss";
 @import "_navigation.scss";
 @import "_productpage.scss";
-@import "_footer.scss"
-
+@import "_footer.scss";
+@import "_index.scss";
 

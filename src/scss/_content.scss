@@ -7,7 +7,11 @@
 .content-wrapper .content {
     display: flex;
     flex-direction: column;
+
 }
+        .content.standard {
+            padding: 115px 40px 0px 40px;
+        }
 
 .content-wrapper .products-wrapper {
     position: relative;
@@ -28,7 +32,7 @@
 .content-wrapper .products-wrapper .products-content {
     display: flex;
     flex-direction: column;
-    padding: 40px 40px 0px 40px;
+    padding: 20px 40px 0px 40px;
 }
 
 section.main {

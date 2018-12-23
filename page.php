@@ -1,5 +1,5 @@
 <?php get_header(); ?> 
-    <div class="content">
+    <div class="content standard">
 
         <h2 class="entry-title"><?php the_title(); ?></h2> <!-- Page Title -->
     <?php

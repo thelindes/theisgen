@@ -26,7 +26,7 @@ function product_post_type() {
   register_post_type('product' , array(
     'labels' => $labels,
     'public' => true,
-    'has_archive' => false,
+    'has_archive' => true,
     'menu_icon' => 'dashicons-cart',
     'rewrite' => array('slug' => 'product'),
     'supports' => array('title', 'editor', 'thumbnail')

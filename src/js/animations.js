@@ -3,10 +3,13 @@
 document.addEventListener('DOMContentLoaded', function () {
     var rewind = document.querySelector('.js_slider');
 
-    lory(rewind, {
-        rewind: true
-    });
+    if(rewind != null){
+        lory(rewind, {
+            rewind: true
+        });
+    }
 });
+
 
 jQuery(
     function($) {
@@ -18,6 +21,16 @@ jQuery(
             $navigation.addClass('open-no-animation');
             $contentWrapper.addClass('navigation-open-no-animation');
         }*/
+
+    $vwWidth = window.innerWidth;    
+
+
+    $("#index-button").click(function() {
+    $vwHeight = window.innerHeight;
+    $('html, body').animate({
+        scrollTop: $(this).offset().top-40
+        }, 1000 );
+    });
 
     $('#search-button').on('click', function() {
         var $search = $('.search-box');
@@ -42,7 +55,6 @@ jQuery(
  
             $search.toggleClass('block', 0).toggleClass('open', 0);          
             $identifier.toggleClass('none');
-        console.log($identifier);
         /*localStorage.setItem('menuOpen', */
     });
 
@@ -81,7 +93,8 @@ jQuery(
         var $search = $('.search-box');
             $search.toggleClass('open');  
     });*/
-    
 
     }
-);
+
+    );
+    
