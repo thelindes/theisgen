@@ -1,0 +1,50 @@
+.index {
+    padding: 0px 40px 0px 40px;
+    background-color: var(--background-reg);
+
+
+    .row {
+        .welcome {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: var(--text-secondary-color);
+
+            img {
+                svg {
+                    fill: var(--text-secondary-color);
+                }
+            }
+
+            #index-button {
+                position: absolute;
+                bottom: 5%;
+            }
+
+            h2, h3 {
+                text-align: center;
+                color: var(--text-secondary-color);
+            }
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            font-size: 50px;
+            text-transform: none;
+        }
+
+        p {
+            font-size: 20px;
+            color: #212529;
+        }
+
+        ul {
+          margin: 0;
+          padding: 0;
+          list-style:none;
+          text-decoration: none;  
+        }
+    }
+}
