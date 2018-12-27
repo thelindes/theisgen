@@ -18,7 +18,7 @@
 	<meta name="author" content="">
 
 
-    <!-- Start Cookie Plugin -->
+<!-- Start Cookie Plugin -->
     <script type="text/javascript">
         window.CookieHinweis_options = {
         message: 'www.theisgen.de nutzt Cookies, um bestmögliche Funktionalität bieten zu können.',
