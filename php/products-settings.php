@@ -66,4 +66,38 @@ function products_taxonomy() {
 }
 add_action( 'init', 'products_taxonomy', 0 );
 
+function rent_taxonomy() {
+  
+  // Labels
+  $singular = 'Mietgerätekategorie';
+  $plural = 'Mietgerätekategorien';
+  $labels = array(
+    'name' => _x( $plural, "taxonomy general name"),
+    'singular_name' => _x( $singular, "taxonomy singular name"),
+    'search_items' =>  __("Search $singular"),
+    'all_items' => __("All $singular"),
+    'parent_item' => null,
+    'parent_item_colon' => null,
+    'edit_item' => __("Edit $singular"),
+    'update_item' => __("Update $singular"),
+    'add_new_item' => __("Add New $singular"),
+    'new_item_name' => __("New $singular Name")
+
+  );
+
+  // Register and attach to 'products' post type
+  register_taxonomy( 'rent_taxonomy', 'product', array(
+    'public' => true,
+    'show_ui' => true,
+    'show_in_nav_menus' => true,
+    'hierarchical' => true,
+    'query_var' => true,
+    'rewrite' => false,
+    'labels' => $labels
+  ) );
+}
+add_action( 'init', 'rent_taxonomy', 0 );
+
 ?>
+
+

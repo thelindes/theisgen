@@ -2,7 +2,6 @@
     padding: 0px 40px 0px 40px;
     background-color: var(--background-reg);
 
-
     .row {
         .welcome {
             height: 100vh;
@@ -19,8 +18,18 @@
             }
 
             #index-button {
+                height: 40px;
+                width: 120px;
                 position: absolute;
                 bottom: 5%;
+                border: 1px solid var(--text-secondary-color);
+                color: var(--text-secondary-color);
+                border-radius: 20px;
+
+              
+            }
+            #index-button:hover {
+                box-shadow: 0 0 9px 0px var(--text-secondary-color);
             }
 
             h2, h3 {

@@ -1,5 +1,0 @@
-Footer mit Follow Möglichkeiten einbauen
-
-
-yarn watch
-yarn build

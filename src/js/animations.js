@@ -24,6 +24,29 @@ jQuery(
 
     $vwWidth = window.innerWidth;    
 
+    $(document).ready(function() {
+        // Optimalisation: Store the references outside the event handler:
+        var $window = $(window);
+        var $fbbig = $("#fbbig");
+        var $fbsmall = $("#fbsmall");
+    
+        function checkWidth() {
+            var windowsize = $window.width();
+            if (windowsize <=  570) {
+                $fbbig.css("display", "none");
+                $fbsmall.css("display", "block");
+                console.log($fbbig);
+            } else {
+                $fbsmall.css("display", "none");
+                $fbbig.css("display", "block");
+            }
+        }
+        // Execute on load
+        checkWidth();
+        // Bind event listener
+        $(window).resize(checkWidth);
+    });
+
 
     $("#index-button").click(function() {
     $vwHeight = window.innerHeight;
@@ -57,43 +80,6 @@ jQuery(
             $identifier.toggleClass('none');
         /*localStorage.setItem('menuOpen', */
     });
-
-        
-    //Filter Tax and Years
-    var products = document.querySelectorAll(".product-content");
-    var $categoryselector = document.querySelectorAll("#category-selector");
-        
-   /*     
-        
-    [...years].forEach(year => {
-        year.addEventListener("click", event => {
-            selectedYear = event.currentTarget.id;
-            //alert(selectedYear);
-            applyFilter();
-        });
-    });
-    [...cats].forEach(cat => {
-        cat.addEventListener("click", event => {
-            selectedCat = event.currentTarget.id;
-            //alert(selectedCat);
-            applyFilter();
-        });
-    });
-    const applyFilter = () => {
-        [...elements].forEach(element => {
-            element.classList.remove("active");
-        });
-        let filteredElements = document.querySelectorAll("." + selectedYear + "." + selectedCat + ".hci-project");
-        [...filteredElements].forEach(element => {
-            element.classList.add("active");
-        });
-    };*/
-
-    /*$('#search-input').focusout(function() {
-        var $search = $('.search-box');
-            $search.toggleClass('open');  
-    });*/
-
     }
 
     );
