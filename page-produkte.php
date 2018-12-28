@@ -84,7 +84,9 @@
                 ?> 
 
                     <?php if($product_price > 1 || $prod_hourrent > 1 || $prod_dailyrent > 1): ?>
-					<div class="col-sm-4 col-md-3 col-6 product-container active <?php echo implode(' ', $links) ?>">  
+                    <div class="col-lg-2 col-md-3 col-sm-4 col-12 product-container active <?php echo implode(' ', $links) ?>"> 
+                        <div class="outer-product-border">
+                            <div class="inner-product-border">
                         <?php if ($product_img_src): ?>
                         <a href="<?php echo get_permalink($post)?>">
                             <img src="<?php echo $product_img_src; ?>" alt="<?php the_title(); ?>">
@@ -100,7 +102,9 @@
                             <?php if($prod_dailyrent > 1) : ?>
                                 <p class="price-tag">Tagesmiete: <?php echo $prod_dailyrent; ?> €</p>
                             <?php endif; ?>
-                        </div>   
+                            </div>
+                        </div> 
+                        </div>  
                     <?php endif; ?>
                 <?php endforeach; ?>
             </div>
