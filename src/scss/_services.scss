@@ -1,0 +1,22 @@
+.services {
+    margin-top: 100px;
+
+    .row {
+        margin: 20px 0px;
+    }
+
+    img.service-img {
+        width: 100%;
+        height: auto;
+    }
+
+    .container {
+        .text-container {
+            vertical-align: center;
+            h3 {
+                font-size: 24px;
+                color: var(--text-secondary-color);
+            }
+        }
+    }
+}

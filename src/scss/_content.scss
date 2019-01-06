@@ -9,9 +9,9 @@
     flex-direction: column;
 
 }
-        .content.standard {
-            padding: 115px 40px 0px 40px;
-        }
+.content.standard {
+padding: 115px 40px 0px 40px;
+}
 
 .content-wrapper .products-wrapper {
     position: relative;
@@ -20,16 +20,8 @@
     flex-direction: column;
     
     .slider-spacer {
-        display: flex;
-        width: 100%;
-        align-items:center;
-        min-height: 60px;
         padding: 20px 40px 20px 40px;
         background-color: var(--background-footer);
-
-        select {
-            margin: 5px 0px;
-        }
     }
 }
 

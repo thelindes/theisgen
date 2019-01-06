@@ -50,7 +50,7 @@
                 </ul>
             </div>
                 <a  class="center-logo" href="<?php echo get_home_url(); ?>">
-                    <i class="icon icon-peter xl"></i>
+                    <i class="icon main icon-peter xl"></i>
                   <!--   <h2><?php echo $blog_info ?></h2> -->
                 </a>
             <div class="navigation-container right">

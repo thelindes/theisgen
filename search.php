@@ -1,25 +1,19 @@
-<?php get_header(); ?>
-    <div class="container content"> 
-        <section class="row">
-            <div class="col-12">
-                <?php if (!have_posts()) : ?>
-                    <div class="alert alert-warning">
-                        <?php _e('Sorry, no results were found.', 'theisgen'); ?>
-                    </div>
-                <?php endif; ?>
+<?php get_header(); 
+?> 
+    <div class="content standard">
 
-                <?php while (have_posts()) : the_post(); ?>
-                  <article <?php post_class(); ?>>
-                      <header>
-                        <h2 class="entry-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
-                        <?php if (get_post_type() === 'post') { get_template_part('templates/entry-meta'); } ?>
-                      </header>
-                      <div class="entry-summary">
-                        <?php the_excerpt(); ?>
-                      </div>
-                  </article>
-                <?php endwhile; ?>
-            </div>
-        </section>
-    </div>
+
+        <?php
+    // TO SHOW THE PAGE CONTENTS
+    while ( have_posts() ) : the_post(); console_log(the_post())?> <!--Because the_content() works only inside a WP Loop -->
+        <h2 class="entry-title"><?php the_title(); ?></h2> <!-- Page Title -->
+        <div class="entry-content-page">
+            <?php the_content(); ?> <!-- Page Content -->
+        </div><!-- .entry-content-page -->
+
+    <?php
+    endwhile; //resetting the page loop
+    wp_reset_query(); //resetting the page query
+    ?>
+</div>
 <?php get_footer(); ?>

@@ -17,6 +17,7 @@ Tags: theisgen, garden, urban, kärcher
   --gray: #c8c3c0;
   --light-gray: #eeeeee;
   --middle-gray: hsl(0, 0%, 53%);
+  --ugly-nav-bg: linear-gradient(to right bottom, var(--green), var(--white));
   
     
     
@@ -29,13 +30,15 @@ Tags: theisgen, garden, urban, kärcher
   --searchbar-secondary: var(--green);
   --card: var(--white);
   --shadow: var(--searchbar);
-  --headline: var(--text-primary-color);
+  --headline:var(--text-primary-color);
+  --nav-headline: var(--white);
   --text-primary-color: var(--middle-gray);
   --text-secondary-color: var(--green);
   --button-primary-color: var(--white);
   --button-secondary-color:  var(--gray);
   --primary-font: Rubik;
   --background-footer: #F8F8F8;
+  --product-background: #f3f3f3;
     
  /*----- values vars -----*/
     
@@ -73,12 +76,15 @@ body {
 }
 
 .icon {
-    color: var(--text-primary-color);
+    color: var(--headline);
     display: flex;
     height: 100%;
     align-items: center;
 }
 
+.icon.main {
+    color: var(--text-secondary-color);
+}
 /* .icon:hover {
     color: var(--text-secondary-color);
     cursor:pointer;
@@ -190,3 +196,19 @@ select {
     cursor: pointer;
 }
 
+.main-button,
+.main-button:active,
+.main-button:visited {
+    height: 40px;
+    width: 120px;
+    position: absolute;
+    bottom: 5%;
+    border: 1px solid var(--text-secondary-color);
+    color: var(--text-secondary-color);
+    border-radius: 20px;
+
+  
+}
+.main-button:hover {
+    box-shadow: 0 0 9px 0px var(--text-secondary-color);
+}
