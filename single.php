@@ -22,6 +22,13 @@
 	<div class="content">
 		<div class="container-fluid product-single dark">
 			<div class="container">
+				<div class="row">
+					<div class="col-12 justify-content-left">
+						<h3 class="single-product-title"><?php echo $product_title ?></h3>
+					</div>
+				</div>
+			</div>
+			<div class="container">
 				<div class="row justify-content-center">
 					<div class="col-md-4 col-12">
 						<div class="row">
@@ -53,7 +60,7 @@
 									</div>
 								<?php endif; ?>
 								<div class="product-information">
-									<h3 class="single-product-title"><?php echo $product_title ?></h2>
+									
 									<div class="product-details">
 										<?php if($product_details) : ?>
 											<?php echo $product_details;?>

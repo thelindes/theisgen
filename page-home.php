@@ -5,14 +5,25 @@
 get_header();
 	$this_post = get_post();
 	$content = $this_post->post_content;
+
+	$masterSliderStart = strpos($content, '[masterslider');
+	$masterSliderEnd = strpos($content, ']');
+	$masterSlider = substr($content, $masterSliderStart, $masterSliderEnd+1);
+	$masterSliderNumber = (int) filter_var($masterSlider, FILTER_SANITIZE_NUMBER_INT);
+
+	$content = str_replace($masterSlider, "", $content);
+
 	$startPictureTag = strpos($content, '[');
 	$endPictureTag = strpos($content, ']');
 	$pictureTag = substr($content, $startPictureTag, $endPictureTag+1);
+
 	$content = str_replace($pictureTag, "", $content);
 	$welcome_icon = get_field("welcome-icon");
-	$pictures = get_post_gallery_images(get_post());
 ?>
 	<div class="container-fluid index">
+		<div class="row">
+			<?php masterslider($masterSliderNumber); ?>
+		</div>
 	<div class="row justify-content-center">
 		<div class="text-center col-md-8 col-12 welcome">
 			<img src="<?php echo $welcome_icon ?>">

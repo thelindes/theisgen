@@ -7,11 +7,20 @@
         'posts_per_page' => -1, /*soviele wie möglich */
         'orderby'        => 'date',
         'orderby'        => 'ASC'
-    ));                         
+    ));
+    
+    $this_post = get_post();
+    $content = $this_post->post_content;
+    console_log($content);
+	$masterSliderStart = strpos($content, '[masterslider');
+	$masterSliderEnd = strpos($content, ']');
+    $masterSlider = substr($content, $masterSliderStart, $masterSliderEnd+1);
+    $masterSliderNumber = (int) filter_var($masterSlider, FILTER_SANITIZE_NUMBER_INT);
+    console_log($masterSliderNumber);
 ?>
 
     <div class="products-wrapper">
-        <?php masterslider(1); ?>
+        <?php masterslider($masterSliderNumber); ?>
         <div class="slider-spacer">
                 <div class="row">
                         
@@ -111,7 +120,7 @@
                 $links[] = $product_brand;
                 ?> 
                     <?php if($product_price > 1 || $prod_hourrent > 1 || $prod_dailyrent > 1): ?>
-                    <div class="col-lg-2 col-md-3 col-sm-4 col-12 product-container active <?php echo implode(' ', $links) ?>"> 
+                    <div class="col-lg-2 col-md-3 col-sm-4 col-6 product-container active <?php echo implode(' ', $links) ?>"> 
                         <a href="<?php echo get_permalink($post)?>">
                         <div class="outer-product-border">
                             <div class="inner-product-border">
@@ -122,18 +131,18 @@
                                     <h3 class="lowercase"><?php the_title(); ?></h3>
                                     <?php if($product_price > 1): ?>
                                         <?php if($product_special_offer != null): ?>
-                                            <p class="price-tag">Kaufpreis: <span class="stroke"><?php echo $product_price; ?> €</span></p>
-                                            <p class="price-tag">Angebotspreis: <span class="offer"><?php echo $product_special_offer; ?> €</span></p>
+                                            <p class="price-tag">Preis: <span class="stroke"><?php echo $product_price; ?> €</span></p>
+                                            <p class="price-tag">Angebot: <span class="offer"><?php echo $product_special_offer; ?> €</span></p>
                                         <?php endif; ?>
                                         <?php if($product_special_offer == null): ?>
-                                            <p class="price-tag">Kaufpreis: <?php echo $product_price; ?> €</p>
+                                            <p class="price-tag">Preis: <?php echo $product_price; ?> €</p>
                                         <?php endif; ?>
                                     <?php endif; ?>
                                     <?php if($prod_hourrent > 1) :?>
-                                        <p class="price-tag">Stundenmiete: <?php echo $prod_hourrent; ?> €</p>
+                                        <p class="price-tag">Miete/Stunde: <?php echo $prod_hourrent; ?> €</p>
                                     <?php endif; ?>
                                     <?php if($prod_dailyrent > 1) : ?>
-                                        <p class="price-tag">Tagesmiete: <?php echo $prod_dailyrent; ?> €</p>
+                                        <p class="price-tag">Miete/Tag: <?php echo $prod_dailyrent; ?> €</p>
                                     <?php endif; ?>
                                 </div>  
                             </div>
