@@ -13,9 +13,9 @@
     <div class="container-fluid footer">
         <div class="content">
         <div class="row">
-            <div class="col-12">
+            <div class="container py-5 px-5">
                 <div class="row">
-                    <div class="col-md-3 col-sm-12 ">
+                    <div class="col-lg-2 col-md-3 col-sm-12 ">
                         <ul class="list-pages">
                             <h2>Unser Angebot</h2>
                             <?php foreach($menu_left as $menu_item):
@@ -24,18 +24,20 @@
                             <?php endforeach; ?>
                         </ul>   
                     </div>
-                    <div class="col-md-3 col-sm-12">
+                    <div class="col-lg-2 col-md-3 col-sm-12 ">
                         <ul class="list-pages">
-                            <h2>Sonstige Informationen</h2>
+                            <h2>Sonstiges</h2>
                             <?php foreach($menu_right as $menu_item):
                             ?>
                                 <li><a href="<?php echo $menu_item->url ?>"><?php echo $menu_item->title ?></a></li>
                             <?php endforeach; ?>
                         </ul>
                     </div>
-                    <div class="col-md-3 col-sm-12">
+                    <div class="col-lg-2 col-md-3 col-sm-12 ">
+                    </div>
+                    <div class="col-lg-2 col-md-3 col-sm-12 ">
                         <ul class="list-pages">
-                            <h2 >Freunde</h2>
+                            <h2 >Partner</h2>
                             <?php foreach( $contactinfo_posts as $post ) : 
                                 setup_postdata( $post ); 
                             ?>
@@ -43,7 +45,7 @@
                             <?php endforeach; ?>
                         </ul>
                     </div>
-                    <div class="col-md-3 col-sm-12">
+                    <div class="col-lg-2 col-md-3 col-sm-12 ">
                         <ul class="list-pages">
                         <h2 >Soziale Medien</h2>
                         <?php foreach( $contactinfo_posts as $post ) : 
@@ -57,52 +59,21 @@
                         <?php endforeach; ?>
                         </ul>
                     </div>
+                    <div class="col-lg-2 col-md-3 col-sm-12 ">
+                        <ul class="list-pages">
+                        <h2 >Kontakt</h2>
+                        <p><span><?php echo get_field('adresse'); ?></span><br><br>
+                        <span>Tel: <?php echo get_field('telefon'); ?></span><br>
+                        <span>Fax: <?php echo get_field('telefax'); ?></span><br>
+                        <span>Mobil: <?php echo get_field('mobil'); ?></span></p>
+                        <p><a href="mailto:<?php echo get_field('standard-mail'); ?>"><?php echo get_field('standard-mail'); ?></a></p>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="row">
         </div>
-                        </div>
     </div>
-
-  <!--   <div class="footer-wrapper">
-        <div class="footer-content">
-            <ul class="list-pages">
-                <p>Unser Angebot</p>
-                <?php foreach($menu_left as $menu_item):
-                ?>
-                    <li><a href="<?php echo $menu_item->url ?>"><?php echo $menu_item->title ?></a></li>
-                <?php endforeach; ?>
-            </ul>        
-            <ul class="list-pages">
-                <p>Sonstige Informationen</p>
-                <?php foreach($menu_right as $menu_item):
-                ?>
-                    <li><a href="<?php echo $menu_item->url ?>"><?php echo $menu_item->title ?></a></li>
-                <?php endforeach; ?>
-            </ul>
-            <ul class="list-pages">
-                <p>Soziale Medien</p>
-                 <?php foreach( $contactinfo_posts as $post ) : 
-                    setup_postdata( $post ); 
-                  ?>
-                <li>
-                    <a target="_blank" href="<?php echo get_field('facebook'); ?>"><i class="icon icon-facebook"></i>
-                    </a>
-                </li>
-                <?php endforeach; ?>
-            </ul>
-            <ul class="list-pages">
-                 <?php foreach( $contactinfo_posts as $post ) : 
-                    setup_postdata( $post ); 
-                  ?>
-                <?php endforeach; ?>
-            </ul>
-        </div>
-        <div class="back-to-main">
-        </div>
-    </div> -->
-
     </div><!-- /.content-wrapper -->
     </div><!-- /.navigation_and_content -->
     </div><!-- /.wrapper -->

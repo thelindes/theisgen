@@ -7,7 +7,6 @@
     $main_menu = wp_get_nav_menu_items('Hauptmenu');
     $datasecurity = wp_get_nav_menu_items('Datenschutz')->url;
     $blog_info = get_bloginfo();
-    console_log($blog_info);
 ?>
 
 <head>
@@ -19,7 +18,7 @@
 
 
 <!-- Start Cookie Plugin -->
-    <script type="text/javascript">
+    <!--<script type="text/javascript">
         window.CookieHinweis_options = {
         message: 'www.theisgen.de nutzt Cookies, um bestmögliche Funktionalität bieten zu können.',
         agree: 'Ok, verstanden',
@@ -29,7 +28,7 @@
         };
     </script>
     <script type="text/javascript" src="https://s3.eu-central-1.amazonaws.com/website-tutor/cookiehinweis/script.js
-    "></script>
+    "></script>-->
     <!-- Ende Cookie Plugin -->
 	<title><?php echo $blog_info ?></title>
 	<?php wp_head();?>

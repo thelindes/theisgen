@@ -1,7 +1,6 @@
 <?php
 //Product custom post type
 function contact_post_type() {
-   
    // Labels
   $labels = array(
     'name' => _x("Kontaktinfos", "post type general name"),
@@ -17,7 +16,6 @@ function contact_post_type() {
     'not_found_in_trash' => __("Keine Kontaktinformationen im Papierkorb gefunden."),
     'parent_item_colon' => ''
   );
-  
   // Register post type
   register_post_type('contactinfo' , array(
     'labels' => $labels,

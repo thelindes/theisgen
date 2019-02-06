@@ -36,7 +36,7 @@ Tags: theisgen, garden, urban, kärcher
   --text-secondary-color: var(--green);
   --button-primary-color: var(--white);
   --button-secondary-color:  var(--gray);
-  --primary-font: Rubik;
+  --primary-font: Roboto;
   --background-footer: #F8F8F8;
   --product-background: #f3f3f3;
     
@@ -55,6 +55,11 @@ Tags: theisgen, garden, urban, kärcher
 body {
     margin: 0;
     padding: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+body.disabled {
+    overflow: hidden;
 }
 
 /* width */
@@ -116,26 +121,26 @@ body {
 }
 
 h1 {
-    font-family: 'Rubik', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 50px;
     font-weight: 600;
 }
 
 h2, b, strong {
-    font-family: 'Rubik', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 14px;
     font-weight: 600;
 }
 
 h2 {
-    font-family: 'Rubik', sans-serif;
+    font-family: 'Roboto', sans-serif;
     text-transform: uppercase;
     color: var(--headline);
-    line-height: 25px;
+    line-height: 50px;
 }
 
 h3 {
-    font-family: 'Rubik', sans-serif;
+    font-family: 'Roboto', sans-serif;
     text-transform: none;
     letter-spacing: normal;
     font-style: normal;
@@ -145,7 +150,7 @@ h3 {
 
 a,
 p {
-    font-family: 'Rubik', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 14px;
 }
 
@@ -157,6 +162,33 @@ a.center-logo {
     color: transparent;
     
 }
+
+.close {
+    position: absolute;
+    right: 32px;
+    top: 32px;
+    width: 32px;
+    height: 32px;
+    opacity: 0.3;
+  }
+  .close:hover {
+    opacity: 1;
+  }
+  .close:before, .close:after {
+    position: absolute;
+    left: 15px;
+    content: ' ';
+    height: 33px;
+    width: 2px;
+    background-color: #333;
+  }
+  .close:before {
+    transform: rotate(45deg);
+  }
+  .close:after {
+    transform: rotate(-45deg);
+  }
+  
 
 .wrapper {
     display:flex;
@@ -191,7 +223,7 @@ select {
     padding-left: 10px;
     padding-right: 10px;
     color: var(--black);
-    font-family: 'Rubik', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 15px;
     border-radius: 2px;
     outline: none;

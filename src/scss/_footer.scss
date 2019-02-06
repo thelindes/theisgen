@@ -1,5 +1,9 @@
 .footer {
-    margin-top: 20px;
+    padding-top: 50px;
+    text-align:center;
+    a {
+        color: black;
+    }
     .content {
         margin-left: -15px;
         margin-right: -15px;
@@ -15,8 +19,9 @@
                 margin: 0;
                 padding: 0;
         
-                li a {
-                    color: black;
+                li {
+                    display: flex;
+                    justify-content: center;
                 }
             }
         }

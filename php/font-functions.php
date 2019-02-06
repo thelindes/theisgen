@@ -1,8 +1,4 @@
 <?php
-
-/*add_action( 'wp_ajax_nopriv_ajax_pagination', 'my_ajax_pagination' );
-add_action( 'wp_ajax_ajax_pagination', 'my_ajax_pagination' );*/
-
 // Add Google Fonts
 function startwordpress_google_fonts() {
     wp_register_style('googleFonts', 'http://fonts.googleapis.com/css?family=Roboto+Slab:400,700|Rubik:400,600,800');
@@ -10,7 +6,6 @@ function startwordpress_google_fonts() {
 }
 
 add_action('wp_print_styles', 'startwordpress_google_fonts');
-
 
 function kb_ignore_upload_ext($checked, $file, $filename, $mimes){
 
@@ -38,7 +33,6 @@ function kb_svg ( $svg_mime ){
 }
 
 add_filter( 'upload_mimes', 'kb_svg' );
-
 
 /**
  * Return SVG markup.

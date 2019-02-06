@@ -8,19 +8,14 @@
         'orderby'        => 'date',
         'orderby'        => 'ASC'
     ));
-    
+
     $this_post = get_post();
     $content = $this_post->post_content;
-    console_log($content);
-	$masterSliderStart = strpos($content, '[masterslider');
-	$masterSliderEnd = strpos($content, ']');
-    $masterSlider = substr($content, $masterSliderStart, $masterSliderEnd+1);
-    $masterSliderNumber = (int) filter_var($masterSlider, FILTER_SANITIZE_NUMBER_INT);
-    console_log($masterSliderNumber);
+    $number = get_SliderId($content);
 ?>
 
     <div class="products-wrapper">
-        <?php masterslider($masterSliderNumber); ?>
+        <?php masterslider($number); ?>
         <div class="slider-spacer">
                 <div class="row">
                         
@@ -92,7 +87,9 @@
                         $prod_dailyrent = get_field('prod-dailyrent');
                         $prod_hourrent = get_field('prod-hourrent');
                         $product_info = get_field('prod-info');
+                        $product_brand_init = get_field('brand');
                         $product_brand = get_field('brand');
+                        $product_type = get_field('article_type');
                         $product_brand = strtolower($product_brand);
                         $product_brand = str_replace(' ', '-', $product_brand);
                         $product_brand= str_replace('.', '-', $product_brand);
@@ -125,10 +122,10 @@
                         <div class="outer-product-border">
                             <div class="inner-product-border">
                                 <?php if ($product_img_src): ?>
-                                    <img src="<?php echo $product_img_src; ?>" alt="<?php the_title(); ?>">
+                                    <img src="<?php echo $product_img_src; ?>" alt="<?php echo $product_brand_init . " " . $product_type ?>">
                                 <?php endif;?>
                                 <div class="text">
-                                    <h3 class="lowercase"><?php the_title(); ?></h3>
+                                    <h3 class="lowercase"><?php echo $product_brand_init . " " . $product_type ?></h3>
                                     <?php if($product_price > 1): ?>
                                         <?php if($product_special_offer != null): ?>
                                             <p class="price-tag">Preis: <span class="stroke"><?php echo $product_price; ?> €</span></p>

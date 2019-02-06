@@ -1,104 +1,79 @@
 .index {
-    padding: 0px 40px 0px 40px;
-    background-color: var(--background-reg);
+    padding-bottom: 30px;
 
-    .index-slider {
-        padding: 0px;
-        margin: 0px -15px;
-        max-height: calc(100vh / 4);
-
-        .frame {
-            /**
-            * (optional) wrapper width, specifies width of the slider frame.
-            */
-            position: relative;
-            font-size: 0;
-            line-height: 0;
-            overflow: hidden;
-            white-space: nowrap;
-            margin-top: 95px;
-        }
-
-        ul.slides {
-        display: inline-block;
-        margin: 0px;
-        max-height: calc(100vh - 95px);
-        padding: 0;  
-            
-            li {
-                margin:0;
-                padding: 0;
-                position: relative;
-                display: inline-block;
-                min-width: 100%;
-                /**
-                * (optional) if the content inside the slide element has a defined size.
-                */
-                img {
-                    width: 100%;
-                    height: auto;
-                }
-            }
-        }
-
-        .prev, .next {
-            position: absolute;
-            top: 50%;
-            margin-top: -25px;
-            display: block;
-            cursor: pointer;
-        }
-
-        .next {
-            right: 0;
-        }
-
-        .prev {
-            left: 0;
-        }
-
-        .next svg, .prev svg {
-            width: 25px;
-        }
+    .container.space {
+        margin-top: 50px;
+        margin-bottom: 30px;
     }
-
-    .row {
-        .welcome {
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            color: var(--text-secondary-color);
-
-            img {
-                svg {
-                    fill: var(--text-secondary-color);
-                }
-            }
-
-            h2, h3 {
-                text-align: center;
-                color: var(--text-secondary-color);
-            }
-        }
+    .text {
+        width: 100%;
+        text-align:center;
 
         h2 {
-            margin-bottom: 20px;
-            font-size: 50px;
-            text-transform: none;
+            font-size: 2rem;
+            color: var(--text-secondary-color);
+        }
+
+        h3 {
+            color: var(--text-secondary-color);
+            font-size: 18px;
         }
 
         p {
-            font-size: 20px;
-            color: #212529;
-        }
-
-        ul {
-          margin: 0;
-          padding: 0;
-          list-style:none;
-          text-decoration: none;  
+            font-size: 14px;
         }
     }
+
+    .outer-border {
+        padding: 5px;
+        width: 100%;
+        height: 100%;
+        
+        .inner-border {
+            background-color: white;
+            border: 0.5px solid var(--searchbar);
+            width: 100%;
+            height: 100%;
+            padding: 5px;
+
+            .img {
+                width: 100%;
+
+                img {
+                    max-width: 100%;
+                    height: auto;
+                }
+            }
+
+            .text {
+                padding: 0px 10px 0px 10px;
+                margin-top: 10px;
+
+                .img {
+                    width: 100%;
+                    height: 140px;
+                    display: flex;
+                    justify-content: center;
+                    
+                    .icon {
+                        font-size: 40px;
+                        color: var(--text-secondary-color);
+                    }
+                    img {
+                        align-self: center;
+                        width: 100%;
+                        height: 60px;
+                    }
+                }
+            }
+        }
+
+        .inner-border:hover {
+            box-shadow: 0px 0px 10px var(--text-primary-color);
+        }
+    }
+}
+
+.index.dark {
+    background-color: var(--product-background);
 }

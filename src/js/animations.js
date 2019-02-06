@@ -35,7 +35,6 @@ jQuery(
             if (windowsize <=  570) {
                 $fbbig.css("display", "none");
                 $fbsmall.css("display", "block");
-                console.log($fbbig);
             } else {
                 $fbsmall.css("display", "none");
                 $fbbig.css("display", "block");
@@ -47,6 +46,25 @@ jQuery(
         $(window).resize(checkWidth);
     });
 
+    $("#open-contact-form-button").on('click', function() {
+        var $buttonValue = document.getElementById("open-contact-form-button").value;
+        var $overlay = $('.background_overlay');
+        var $textarea = $('wpcf7-form-control');
+        var $body = $('body');
+
+        $body.toggleClass('disabled');
+        $textarea.context.forms[2][8].defaultValue = "Meine Frage zu " + $buttonValue; 
+
+        $overlay.toggleClass('active', 0);
+        $textarea
+    });
+
+    $(".close").on('click', function() {
+        var $body = $('body');
+        $body.toggleClass('disabled');
+        var $overlay = $('.background_overlay');
+        $overlay.removeClass('active');
+    })
 
     $("#index-button").click(function() {
     $vwHeight = window.innerHeight;

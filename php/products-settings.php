@@ -1,7 +1,6 @@
 <?php
 //Product custom post type
 function product_post_type() {
-   
    // Labels
   $labels = array(
     'name' => _x("Produkte", "post type general name"),
@@ -40,16 +39,16 @@ function products_taxonomy() {
   $singular = 'Produktkategorie';
   $plural = 'Produktkategorien';
   $labels = array(
-    'name' => _x( $plural, "taxonomy general name"),
-    'singular_name' => _x( $singular, "taxonomy singular name"),
-    'search_items' =>  __("Search $singular"),
-    'all_items' => __("All $singular"),
+    'name' => _x( $plural, "Name"),
+    'singular_name' => _x( $singular, " Name"),
+    'search_items' =>  __("Suche $singular"),
+    'all_items' => __("Alle $plural"),
     'parent_item' => null,
     'parent_item_colon' => null,
-    'edit_item' => __("Edit $singular"),
-    'update_item' => __("Update $singular"),
-    'add_new_item' => __("Add New $singular"),
-    'new_item_name' => __("New $singular Name")
+    'edit_item' => __("Bearbeite $singular"),
+    'update_item' => __("Aktualisiere $singular"),
+    'add_new_item' => __("Füge eine neue $singular hinzu"),
+    'new_item_name' => __("Neuer $singular")
 
   );
 
@@ -67,21 +66,20 @@ function products_taxonomy() {
 add_action( 'init', 'products_taxonomy', 0 );
 
 function rent_taxonomy() {
-  
   // Labels
-  $singular = 'Mietgerätekategorie';
-  $plural = 'Mietgerätekategorien';
+  $singular = 'Mietkategorie';
+  $plural = 'Mietkategorien';
   $labels = array(
-    'name' => _x( $plural, "taxonomy general name"),
-    'singular_name' => _x( $singular, "taxonomy singular name"),
-    'search_items' =>  __("Search $singular"),
-    'all_items' => __("All $singular"),
+    'name' => _x( $plural, "Name"),
+    'singular_name' => _x( $singular, "Name"),
+    'search_items' =>  __("Suche $singular"),
+    'all_items' => __("Alle $plural"),
     'parent_item' => null,
     'parent_item_colon' => null,
-    'edit_item' => __("Edit $singular"),
-    'update_item' => __("Update $singular"),
-    'add_new_item' => __("Add New $singular"),
-    'new_item_name' => __("New $singular Name")
+    'edit_item' => __("Bearbeite $singular"),
+    'update_item' => __("Aktualisiere $singular"),
+    'add_new_item' => __("Füge eine neue $singular hinzu"),
+    'new_item_name' => __("Neue $singular")
 
   );
 
@@ -98,6 +96,5 @@ function rent_taxonomy() {
 }
 add_action( 'init', 'rent_taxonomy', 0 );
 
-?>
 
 

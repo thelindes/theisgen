@@ -29,8 +29,10 @@
                 padding: 10px 0px;
                 margin: 0px 10px ;
                 border-top: 0.5px solid var(--searchbar);
-                text-align: center;
-        
+                h3 {
+                    font-weight: 600;
+                    color: var(--black);
+                }
                 @media only screen and (max-width: 400px) {
                     h3 {
                         font-size: 14px !important;
@@ -63,7 +65,7 @@
 
 p.price-tag {
     font-size: 11px;
-    font-weight: 800;
+    font-weight: 400;
     margin-top: -5px;
     margin-bottom: 0px;
     color: var(--black);
@@ -80,7 +82,7 @@ p.price-tag {
 
 .product-single {
 
-            padding: 115px 40px 0px 40px;
+            padding: 95px 40px 0px 40px;
             
  /**
              * (optional) define here the style definitions which should be applied on the slider container
@@ -92,8 +94,8 @@ p.price-tag {
                 } */
 
                 .product-card {
-                    box-shadow: 0px 0px 5px var(--text-secondary-color);
-                    background-color: var(--background-reg);
+                    box-shadow: 0px 0px 5px var(--searchbar);
+                    background-color: var(--card);
 
                     .product-information {
                         border-top: 0.5px solid var(--searchbar);
@@ -127,6 +129,7 @@ p.price-tag {
                                 }
                                 
                                 li {
+                                    font-size: 14px;
                                     padding: 10px 0px;
                                     border-bottom: 1px solid var(--searchbar);
                                 }
@@ -190,7 +193,7 @@ p.price-tag {
              
             p.price-tag {
                 font-size: 15px;
-                font-weight: 800;
+                font-weight: 500;
                 margin-top: -5px;
                 color: var(--black);
 
@@ -209,7 +212,7 @@ p.price-tag {
                      margin: 0;
                  }
 
-                 p.product-description {
+                 .product-description {
                      padding: 20px 0px 20px 0px;
                      margin-top: 20px;
                      border-top: 0.5px solid var(--searchbar);
@@ -217,10 +220,16 @@ p.price-tag {
              }
 
              .taxonomy {
+                 margin-top:30px;
+
                  ul {
                      margin: 0;
                      padding: 0;
+                     li:first-child {
+                        color: var(--black);
+                     }
                      li {
+                         font-size: 14px;
                          color: var(--text-secondary-color);
                          display: inline-block;
                          list-style-type: none;

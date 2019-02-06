@@ -1,0 +1,102 @@
+.single {
+    h3 {
+        font-size: 25px;
+        color: var(--text-primary-color);
+    }
+
+    .background_overlay {
+        top: 0;
+        bottom: 0;
+        display: none;
+        position: fixed;
+        min-height: 100%; 
+        min-width: 100%;
+        z-index: 100;
+        overflow: hidden;
+        justify-content: center;
+        
+        .background_overlay_color {
+            background-color: darkgray;
+            opacity: 0.8;
+            min-height: 100%; 
+            min-width: 100%;
+            position: absolute;
+            z-index: 100;
+        }
+        
+        .contact_form_card {
+            box-shadow: 0px 0px 10px var(--text-primary-color);
+            background-color: white;
+            height: auto;
+            max-width: 600px;
+            opacity: 1;
+            position: absolute; 
+            z-index: 102;
+            margin: 0 auto;
+            top: 120px;
+            bottom: 25px;
+            padding: 25px;
+            overflow-y: scroll;
+            
+        }
+
+    }
+
+    .product-description {
+
+        table {
+            font-family: 'Roboto', sans-serif;
+            width: 100%;
+            table-layout: fixed;
+            box-shadow: 0 0 10px var(--searchbar);
+            background-color: var(--card);
+            margin-top: 25px;
+            margin-bottom: 25px;
+            thead {
+                tr {
+                    th {
+                        color: var(--text-primary-color);
+                        font-family: 'Roboto Condensed', sans-serif;
+                        font-size: 14px;
+                        padding-left: 16px;
+                        height: 50px;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                    }
+                }
+            }
+            tbody {
+                margin: 15px;
+                tr:first-child {
+                    border-top: 0px;
+                }
+
+                tr:last-child {
+                    border-bottom: 0px;
+                }
+                tr {
+                    height: 50px;
+                    border-top: 0.5px solid var(--searchbar);
+                    border-bottom: 0.5px solid var(--searchbar);
+
+                    td {
+                        vertical-align: middle;
+                        padding-left: 16px;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        font-size: 14px;
+                    }
+
+                }
+
+            }
+        }
+
+    }
+    .background_overlay.active {
+        display: flex;
+    }
+
+
+
+}
