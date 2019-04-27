@@ -28,7 +28,7 @@ function product_post_type() {
     'has_archive' => true,
     'menu_icon' => 'dashicons-cart',
     'rewrite' => array('slug' => 'product'),
-    'supports' => array('title', 'editor', 'thumbnail')
+    'supports' => array('title', 'editor', 'thumbnail', 'revisions')
   ) );
 }
 add_action( 'init', 'product_post_type', 0 );
@@ -95,6 +95,3 @@ function rent_taxonomy() {
   ) );
 }
 add_action( 'init', 'rent_taxonomy', 0 );
-
-
-

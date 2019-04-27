@@ -1,12 +1,18 @@
-    
+   
     //Filter Tax and Years
     var productCategorySelector;
     var rentCategorySelector;
+    var attributesSelector;
+    var productsInitial;
+    var productsShowroom;
 
     document.addEventListener('DOMContentLoaded', function () {
         productCategorySelector = document.querySelector("#products_selector");
         rentCategorySelector = document.querySelector("#rent_selector");
         brandCategorySelector = document.querySelector("#brand_selector");
+        attributesSelector = document.querySelector("#attributes_selector");
+        productsInitial = document.querySelectorAll(".product-container");
+        productsShowroom = document.querySelector("#products-showroom");
         
         if(productCategorySelector != null){
             productCategorySelector.addEventListener("change", () => {
@@ -26,7 +32,35 @@
             });
         }
 
+        if(brandCategorySelector != null){
+           attributesSelector.addEventListener("change", () => {
+               if(attributesSelector.value == "alphabet_asc") {
+                   applyAlphabeticalAscFilter();
+               }
+
+                if(attributesSelector.value == "alphabet_desc") {
+                    applyAlphabeticalDescFilter();
+                }
+
+               if(attributesSelector.value == "price_asc") {
+                    applyPriceAscFilter();
+               }
+               
+               if(attributesSelector.value == "price_desc") {
+                    applyPriceDescFilter();
+               }
+
+               if(attributesSelector.value == "date") {
+                    applyDateAscFilter();
+               }
+            });
+        }
+
     });
+
+    function setSessionObject(input) {
+        console.log(input);
+    }
       
     const addOrRemoveClass = (productClasses, activatingClass, selectorValue, type) => {
         
@@ -113,6 +147,60 @@
         })
     }
 
+    const applyAlphabeticalAscFilter = () => {
 
+        const products = productsInitial;
+        let idArray = [].slice.call(products).sort(function (a,b) {
+            return a.id > b.id ? 1: -1;
+        });
 
+        idArray.forEach(function (p) {
+            productsShowroom.appendChild(p);
+        });
+    }
+
+    const applyAlphabeticalDescFilter = () => {
+
+        const products = productsInitial;
+        let idArray = [].slice.call(products).sort(function (a,b) {
+            return a.id < b.id ? 1: -1;
+        });
+
+        idArray.forEach(function (p) {
+            productsShowroom.appendChild(p);
+        });
+    }
+
+    const applyPriceAscFilter = () => {
+        const products = productsInitial;
+        let priceArray = [].slice.call(products).sort((a,b) =>
+            parseFloat(a.dataset.price) - parseFloat(b.dataset.price)
+        );
+
+        priceArray.forEach(function (p) {
+            productsShowroom.appendChild(p);
+        });
+    }
+
+    const applyPriceDescFilter = () => {
+        const products = productsInitial;
+        let priceArray = [].slice.call(products).sort((a,b) =>
+            parseFloat(b.dataset.price) - parseFloat(a.dataset.price)
+        );
+
+        priceArray.forEach(function (p) {
+            productsShowroom.appendChild(p);
+        });
+    }
+
+    const applyDateAscFilter = () => {
+        const products = productsInitial;
+        let dateArray = [].slice.call(products).sort((a,b) =>
+        new Date(b.dataset.date) - new Date(a.dataset.date)
+        );
+
+        dateArray.forEach(function (p) {
+            productsShowroom.appendChild(p);
+        });
+    }
 

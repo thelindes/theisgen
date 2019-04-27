@@ -20,15 +20,28 @@ padding: 115px 40px 0px 40px;
     flex-direction: column;
     
     .slider-spacer {
-        padding: 20px 40px 20px 40px;
-        background-color: var(--background-footer);
+        padding: 115px 40px 20px 40px;
+        background-color: var(--white);
+        box-shadow: 0px -5px 16px 0px grey;
+        margin-top: -1px;
+    }
+
+    div.row.stretched {
+        margin-left: -30px;
+        margin-right: -30px;
+   
     }
 }
 
 .content-wrapper .products-wrapper .products-content {
     display: flex;
     flex-direction: column;
-    padding: 20px 50px 0px 50px;
+    padding: 20px 50px 20px 50px;
+
+}
+.content-wrapper .products-wrapper .products-content.slim {
+    overflow: hidden;
+    transition: transform 300ms ease;
 }
 
 section.main {

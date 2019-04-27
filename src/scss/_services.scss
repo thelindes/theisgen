@@ -1,7 +1,8 @@
 .services {
     margin-top: 100px;
+    background-color: var(--background-footer);
 
-    .row {
+    .row.margin {
         margin: 20px 0px;
     }
 
@@ -10,13 +11,50 @@
         height: auto;
     }
 
-    .container {
-        .text-container {
-            vertical-align: center;
-            h3 {
-                font-size: 24px;
-                color: var(--text-secondary-color);
-            }
+    .text-container {
+        vertical-align: center;
+        padding: 15px 15px 0px 15px;
+        
+        h3 {
+            font-size: 24px;
+            font-weight: 500;
+            color: var(--headline);
+        }
+
+        p {
+            color: var(--middle-gray);
+        }
+
+    }
+
+    .text-container.footer {
+        padding: 10px 15px 10px 15px;
+        border-top: 1px solid var(--searchbar);
+        p.date {
+            color: var(--middle-gray);
+            font-size: 12px;
+            font-weight: 500;
+            margin-bottom: 0;
         }
     }
+    
+    .col-12 {
+        padding: 15px 25px;
+    }
+
+    .form-container {
+        padding: 15px;
+    }
+
+    .frame {
+        /**
+         * (optional) wrapper width, specifies width of the slider frame.
+         */
+        position: relative;
+        font-size: 0;
+        line-height: 0;
+        overflow: hidden;
+        white-space: nowrap;
+    }
+
 }

@@ -1,6 +1,48 @@
 .card {
-    display:flex;
     width: 100%;
-    height: 100px;
-    margin: 15px; 
+    height: 100%;
+    box-shadow: 0 0 5px var(--searchbar);
+    background-color: var(--white);
+    overflow: hidden;
+
+    .picture {
+        max-width: 150px;
+        height: auto;
+
+        img {
+            width: 100%;
+            height: auto;
+        }
+    }
+
+    .text-container {
+        vertical-align: center;
+        padding: 15px 15px 0px 15px;
+        
+        h3 {
+            font-size: 24px;
+            font-weight: 500;
+            color: var(--headline);
+        }
+
+        p {
+            color: var(--middle-gray);
+        }
+
+    }
+
+} 
+
+.card.scale-content {
+    justify-content: flex-start;
+    padding: 20px;
+}
+
+.card.empty {
+    height: 500px;
+    margin: 25px 0px;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content:center;
 }

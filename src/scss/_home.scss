@@ -1,13 +1,12 @@
 .index {
-    padding-bottom: 30px;
-
     .container.space {
         margin-top: 50px;
         margin-bottom: 30px;
     }
-    .text {
+    .index-text {
         width: 100%;
         text-align:center;
+        padding: 10px;
 
         h2 {
             font-size: 2rem;
@@ -22,58 +21,22 @@
         p {
             font-size: 14px;
         }
-    }
 
-    .outer-border {
-        padding: 5px;
-        width: 100%;
-        height: 100%;
-        
-        .inner-border {
-            background-color: white;
-            border: 0.5px solid var(--searchbar);
+        .img {
             width: 100%;
-            height: 100%;
-            padding: 5px;
-
-            .img {
+            height: 140px;
+            display: flex;
+            justify-content: center;
+            
+            .icon {
+                font-size: 40px;
+                color: var(--text-secondary-color);
+            }
+            img {
+                align-self: center;
                 width: 100%;
-
-                img {
-                    max-width: 100%;
-                    height: auto;
-                }
+                height: 60px;
             }
-
-            .text {
-                padding: 0px 10px 0px 10px;
-                margin-top: 10px;
-
-                .img {
-                    width: 100%;
-                    height: 140px;
-                    display: flex;
-                    justify-content: center;
-                    
-                    .icon {
-                        font-size: 40px;
-                        color: var(--text-secondary-color);
-                    }
-                    img {
-                        align-self: center;
-                        width: 100%;
-                        height: 60px;
-                    }
-                }
-            }
-        }
-
-        .inner-border:hover {
-            box-shadow: 0px 0px 10px var(--text-primary-color);
         }
     }
-}
-
-.index.dark {
-    background-color: var(--product-background);
 }

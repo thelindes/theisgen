@@ -1,4 +1,6 @@
-<?php wp_footer(); 
+<?php wp_footer(); ?>
+<?php 
+    
     $contactinfo_posts = get_posts(array(
         'post_type'      => 'contactinfo',
         'posts_per_page' => -1, /*soviele wie möglich */
@@ -6,10 +8,16 @@
         'orderby'        => 'ASC'
     ));   
 
+    $post_id = $contactinfo_posts[0] -> ID;
     $menu_left = wp_get_nav_menu_items('Menu_Links');
     $menu_right = wp_get_nav_menu_items('Sonstige_Informationen');
+    $telephone = get_field('telefon', $post_id);
+    $telefax = get_field('telefax', $post_id);
+    $mobile = get_field('mobil', $post_id);
+    $mail = get_field('standard-mail', $post_id);
+    $address = get_field('adresse', $post_id);
+    
 ?>
-
     <div class="container-fluid footer">
         <div class="content">
         <div class="row">
@@ -62,11 +70,21 @@
                     <div class="col-lg-2 col-md-3 col-sm-12 ">
                         <ul class="list-pages">
                         <h2 >Kontakt</h2>
-                        <p><span><?php echo get_field('adresse'); ?></span><br><br>
-                        <span>Tel: <?php echo get_field('telefon'); ?></span><br>
-                        <span>Fax: <?php echo get_field('telefax'); ?></span><br>
-                        <span>Mobil: <?php echo get_field('mobil'); ?></span></p>
-                        <p><a href="mailto:<?php echo get_field('standard-mail'); ?>"><?php echo get_field('standard-mail'); ?></a></p>
+                        <?php if($address): ?>
+                            <p><span><?php echo $address ?></span><br><br>
+                        <?php endif; ?>
+                        <?php if($telephone): ?>
+                            <span>Tel: <?php echo $telephone ?></span><br>
+                        <?php endif; ?>
+                        <?php if($telefax): ?>
+                            <span>Fax: <?php echo $telefax ?></span><br>`
+                        <?php endif; ?>
+                        <?php if($mobile): ?>
+                            <span>Mobil: <?php echo $mobile ?></span></p>
+                        <?php endif; ?>
+                        <?php if($mail != null): ?>
+                            <p><a href="mailto:<?php echo $mail ?>"><?php echo $mail ?></a></p>
+                        <?php endif; ?>
                         </ul>
                     </div>
                 </div>

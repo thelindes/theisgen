@@ -1,6 +1,6 @@
 <?php get_header();
-    // Get 'product' posts
     
+    // Get 'product' posts
     $brand_terms;
     $product_posts = get_posts(array(
         'post_type'      => 'product',
@@ -15,28 +15,26 @@
 ?>
 
     <div class="products-wrapper">
-        <?php masterslider($number); ?>
         <div class="slider-spacer">
-                <div class="row">
-                        
-                        <select id="products_selector" class="col-md-4 col-12 filter-list filter-taxonomies active">
+                <div class="row stretched">
+                    <div class="col-sm-4 col-12 ">
+                        <select id="products_selector" class="container filter-list filter-taxonomies active">
                             <?php
                             $terms = get_terms('products_taxonomy');
                             $count = count($terms); //Term count          
                             echo '<option value="no_products_filter">Alle Produktkategorien</option>';
                             if ($count > 0) {
                                 foreach ($terms as $term) {
-                                    if($term->slug != "mietgeraete"){
-                                        $termname = strtolower($term->name);
-                                        $termname = str_replace(' ', '-', $termname);
-                                        $termname = str_replace('.', '-', $termname);
-                                        echo '<option value="'. $term->slug . '">' . $term->name . '</option>';
-                                    }
+                                    $termname = strtolower($term->name);
+                                    $termname = str_replace(' ', '-', $termname);
+                                    $termname = str_replace('.', '-', $termname);
+                                    echo '<option value="'. $term->slug . '">' . $term->name . '</option>';
                                 }
                             } ?>
                         </select>
-                        
-                       <select id="brand_selector" class="col-md-4 col-12 filter-list filter-taxonomies active">
+                    </div>
+                      <div class="col-sm-4 col-12 ">  
+                       <select id="brand_selector" class="container filter-list filter-taxonomies active">
                             <?php
                             $iterator = 0;
                             foreach($product_posts as $post){
@@ -49,6 +47,7 @@
                             echo "<option value='no_brand_filter'>Alle Marken</option>";
                             if ($count > 0) {
                                 foreach ($brand_terms as $term) {
+                                        if($term != ""){
                                         $termname = strtolower($term);
                                         $termname = str_replace(' ', '-', $termname);
                                         $termname = str_replace('.', '-', $termname);
@@ -61,14 +60,27 @@
                                         $termname = str_replace("ß", "ss", $termname);
                                         $termname = str_replace("´", "", $termname);
                                         echo '<option value="'. $termname . '">' . $term . '</option>';
+                                        }
                                 }
                             } ?>
                         </select>
+                        </div>
+                        <div class="col-sm-4 col-12 ">
+                        <select id="attributes_selector" class="container filter-list filter-taxonomies active">
+                            <option value="date">Nach Einstelldatum sortieren</option>
+                            <option value="alphabet_asc">A-Z sortieren</option>
+                            <option value="alphabet_desc">Z-A sortieren</option>
+                            <option value="price_asc">Nach Preis sortieren / aufsteigend</option>
+                            <option value="price_desc">Nach Preis sortieren / absteigend</option>
+                        </select>
+                        </div>
               </div>  
         </div>
-        <div class="container-fluid products-content">
-            <div class="row">
-                <?php foreach( $product_posts as $post ) : 
+    </div>
+        <div class="container-fluid products-padding">
+            <div id="products-showroom" class="row">
+                <?php 
+                    foreach(  $product_posts as $post ) : 
                     $links = array();
                     setup_postdata( $post ); 
                     $product_img_src = null;
@@ -81,6 +93,7 @@
                         }
                 
                         $rent_terms = get_the_terms($post-> ID, 'rent_taxonomy');
+                        $product_date = $post -> post_date;
                         $terms = get_the_terms($post->ID, 'products_taxonomy');
                         $product_price = get_field('price');
                         $product_special_offer = get_field('special_offer');
@@ -115,9 +128,11 @@
                 }
 
                 $links[] = $product_brand;
+                $idToSort = $product_brand . "_" . $product_type; 
                 ?> 
-                    <?php if($product_price > 1 || $prod_hourrent > 1 || $prod_dailyrent > 1): ?>
-                    <div class="col-lg-2 col-md-3 col-sm-4 col-6 product-container active <?php echo implode(' ', $links) ?>"> 
+                <!--$product_price > 1 || $prod_hourrent > 1 || $prod_dailyrent > 1-->
+                 <?php if(true): ?>
+                    <div id="<?php echo $idToSort; ?>" data-price="<?php echo $product_price; ?>" data-date="<?php echo $product_date; ?>" class="col-lg-2 col-md-3 col-sm-4 col-6 product-container active <?php echo implode(' ', $links) ?>"> 
                         <a href="<?php echo get_permalink($post)?>">
                         <div class="outer-product-border">
                             <div class="inner-product-border">
@@ -152,3 +167,5 @@
         </div>
     </div>
 <?php get_footer(); ?>
+
+<!--<div id="filtered_products_result"><?php echo do_shortcode("[my_ajax_filter_search]"); ?>-->

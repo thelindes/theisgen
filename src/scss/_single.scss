@@ -1,7 +1,10 @@
 .single {
-    h3 {
+    background-color: var(--background-footer);
+   h2.headline {
         font-size: 25px;
         color: var(--text-primary-color);
+        word-break: break-word;
+        font-weight: 500;
     }
 
     .background_overlay {
@@ -42,6 +45,7 @@
 
     }
 
+    .product-details,
     .product-description {
 
         table {
@@ -93,10 +97,52 @@
         }
 
     }
+
+    .product-details {
+        table {
+            box-shadow: none;
+        }
+    }
     .background_overlay.active {
         display: flex;
     }
 
+    
+    .products-content.slim {
+        overflow: hidden;
+        .arrows {
+            display: flex;
+            justify-content: center;
 
+            .companion-click {
+                svg {
+                    width: 25px;
+                }
+            }
+            
+            .companion-click:hover {
+                cursor: pointer;
+                svg g path {
+                    width: 30px;
+                    transition: width 100ms ease;
+                    fill: var(--headline);
+                }
+            }
+            
+            .companion-click.left{
+                left:0;
+            }
+            
+            .companion-click.right {
+                right: 0;
+            }
+        }
+        }
+
+    .companion-slide {
+        display: -webkit-box;
+        flex-wrap: nowrap;
+        transition: transform 200ms ease;
+    }
 
 }

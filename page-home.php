@@ -10,8 +10,6 @@ get_header();
 		'orderby'        => 'ASC'
 	));
 
-	console_log($product_posts);
-
 	$this_post = get_post();
 	$content = $this_post->post_content;
 	$content = get_normalizedText($content);
@@ -27,12 +25,12 @@ get_header();
 	$welcome_icon = get_field("welcome-icon");
 ?>
 	<?php masterslider($masterSliderNumber); ?>
-	<div class="container-fluid index dark">
-		<div class="row">
-			<div class="container space">
+	<div class="container-fluid index">
+		<div class="row footer padding-top">
+			<div class="container">
 				<div class="row">
 					<div class="col-12">
-						<div class="text">
+						<div class="index-text">
 							<?php echo $servicesHeadline ?>
 							<p><?php echo $subtext ?></p>
 						</div>
@@ -40,7 +38,7 @@ get_header();
 				</div>
 			</div>
 		</div>
-		<div class="row">
+		<div class="row footer padding-bottom">
 			<div class="container py-5 px-5">
 				<div class="row">
 				<?php foreach($servicesList as $service) :
@@ -50,6 +48,8 @@ get_header();
 						$iterator = -1;
 						if(strlen($service[1]) > 2) {
 							$picture = $service[1];
+
+							console_log($picture);
 						}
 
 						if(strlen($service[2]) > 2) {
@@ -62,23 +62,11 @@ get_header();
 						$iterator++;
 						?>
 						<?php if($headline != null): ?>
-							<div class="col-lg-3 col-md-4 col-sm-6 col-12">
-								<div class="outer-border">
-									<div class="inner-border">
-											<div class="text">
+							<div class="col-lg-3 col-md-4 col-sm-6 col-12 product-container active">
+								<div class="outer-product-border">
+									<div class="inner-product-border">
+											<div class="index-text">
 												<div class="img">
-												<!-- 	<?php if($iterator == 0): ?>
-														<i class="icon icon-shopping-cart"></i>
-													<?php endif; ?>
-													<?php if($iterator == 1): ?>
-														<i class="icon icon-truck"></i>
-													<?php endif; ?>
-													<?php if($iterator == 2): ?>
-														<i class="icon icon-wrench"></i>
-													<?php endif; ?>
-													<?php if($iterator == 3): ?>
-														<i class="icon icon-wrench"></i>
-													<?php endif; ?> -->
 													<?php if($picture != null) : echo $picture ?><?php endif; ?>
 												</div>
 												<?php if($headline != null) : echo $headline ?><?php endif; ?>
@@ -92,15 +80,8 @@ get_header();
 				</div>
 			</div>
 		</div>
-		<div class="row">
+		<div class="row footer spacer">
 			<div class="container py-5 px-5 products-content">
-				<div class="container space">
-					<div class="row">
-						<div class="text">
-							<h2>Aktuell im Angebot </h2>
-						</div>
-					</div>
-				</div>
 				<div class="row">
 					<?php  
 						$iterator = 0;
@@ -124,10 +105,17 @@ get_header();
 						
 					?>
 					<?php if($iterator < 4 && $product_special_offer != null && $product_special_offer != "") :?>
-						<div class="col-lg-3 col-md-4 col-sm-6 col-12"> 
+					<div class="container">
+					<div class="row">
+						<div class="index-text">
+							<h2>Aktuell im Angebot </h2>
+						</div>
+					</div>
+				</div>
+						<div class="col-lg-3 col-md-4 col-sm-6 col-12 product-container active"> 
 								<a href="<?php echo get_permalink($post)?>">
-								<div class="outer-border">
-									<div class="inner-border">
+								<div class="outer-product-border">
+									<div class="inner-product-border">
 										<div class="img">
 											<img src="<?php echo $product_img_src; ?>" alt="<?php the_title(); ?>">
 										</div>

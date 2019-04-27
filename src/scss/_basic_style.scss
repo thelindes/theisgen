@@ -1,11 +1,3 @@
-/*
-Theme Name: Forst, Garten- & Reinigungsgeräte Theisgen
-Author: Patrick Lindner
-Description: Simple gardening shop theme.
-Version: 0.0.1
-Tags: theisgen, garden, urban, kärcher
-*/
-
 :root {
   --light-brown: #ddd294;
   --brown: #956a57;
@@ -18,7 +10,7 @@ Tags: theisgen, garden, urban, kärcher
   --light-gray: #eeeeee;
   --middle-gray: hsl(0, 0%, 53%);
   --ugly-nav-bg: linear-gradient(to right bottom, var(--green), var(--white));
-  
+  --line-color: rgb(169, 169, 169);
     
     
   --white: #ffffff;
@@ -60,6 +52,10 @@ body {
 
 body.disabled {
     overflow: hidden;
+}
+
+body.enabled {
+    overflow: auto !important;
 }
 
 /* width */
@@ -161,7 +157,13 @@ p {
 a.center-logo {
     color: transparent;
     
+    img.main-logo {
+        height: 75px;
+        width: auto;
+    }
 }
+
+
 
 .close {
     position: absolute;
@@ -199,14 +201,17 @@ a.center-logo {
 
 button, 
 button:hover,
-button:active,
 button:focus{
-    border: none;
     color: none;
     background-color: transparent;
     box-shadow: none;
     outline: none;
     
+}
+
+button.icon-only {
+    border:none;
+
 }
 
 button:hover{
@@ -234,7 +239,7 @@ select {
 .main-button:active,
 .main-button:visited {
     height: 40px;
-    width: 120px;
+    min-width: 120px;
     position: absolute;
     bottom: 5%;
     border: 1px solid var(--text-secondary-color);
@@ -245,4 +250,97 @@ select {
 }
 .main-button:hover {
     box-shadow: 0 0 9px 0px var(--text-secondary-color);
+}
+
+.row.spacer {
+    padding: 15px 0px;
+}
+
+.row.padding-top {
+    padding-top: 50px;
+}
+
+.row.padding-bottom {
+    padding-bottom: 30px;
+}
+
+.row.footer {
+    background-color: var(--background-footer);
+}
+
+.row.white {
+    background-color: var(--white);
+}
+
+.dialog-overlay.disabled {
+    display: none !important;
+}
+.dialog-overlay {
+    width: 100%;
+    top: 0;
+    bottom: 0;
+    z-index: 1000;
+    position: fixed;
+    background-color: var(--background-footer);
+    overflow: hidden;
+    justify-content: center;
+
+    .dialog {
+        display: flex;
+        width: 100%;
+        height: 100%;
+        justify-content: center;
+        align-items: center;
+        
+        @media only screen and (max-width: 400px) {
+            padding: 50px 25px;
+        }
+       
+        @media only screen and (min-width: 401px) {
+            padding: 50px;
+        }
+
+        @media only screen and (min-width: 800px) {
+            padding: 50px 150px;
+        }
+        
+        @media only screen and (min-width: 1201px) {
+            padding: 50px 300px;
+        }
+    
+    .card {
+        overflow: hidden;
+        scroll-behavior: smooth;
+        overflow-y: auto;
+        
+        .text-container {
+            padding: 20px 20px 0px 20px;
+            text-align: center;
+            
+            h3 {
+                font-size: 24px;
+                font-weight: 500;
+                color: var(--headline);
+            }
+    
+            p {
+                color: var(--middle-gray);
+            }
+    
+        }
+    
+        .text-container.footer {
+            padding: 10px 15px 10px 15px;
+            border-top: 1px solid var(--searchbar);
+            p.date {
+                color: var(--middle-gray);
+                font-size: 12px;
+                font-weight: 500;
+                margin-bottom: 0;
+            }
+        }
+    }
+    
+    }
+
 }

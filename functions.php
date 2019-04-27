@@ -40,7 +40,7 @@ function console_log( $data ){
   function get_contentPart( $data , $part ){
      if($part == "img"){
          $start = '<' . $part;
-          $end = '/>';
+          $end = '<!--img-->';
           $result = substr($data, strpos( $data, $start) , strpos($data, $end ) + strlen($part) );
      } else {
          $start = '<' . $part . '>';
@@ -113,6 +113,7 @@ function startwordpress_scripts() {
     wp_enqueue_script( 'jquery-ui', get_stylesheet_directory_uri() . '/dist/js/jquery-ui.min.js', array('jquery'), true );
     wp_enqueue_script( 'lory-js', get_stylesheet_directory_uri() . '/dist/js/lory.min.js', true );
     wp_enqueue_script( 'formvalidation', get_stylesheet_directory_uri() . '/dist/js/form-validation.min.js', array('jquery'), true );   
+
 }
 
 add_action( 'wp_enqueue_scripts', 'startwordpress_scripts');
@@ -120,6 +121,9 @@ require_once( __DIR__ . '/php/font-functions.php');
 require_once( __DIR__ . '/php/products-settings.php');
 require_once( __DIR__ . '/php/contact-settings.php');
 require_once( __DIR__ . '/php/duplicate-post.php');
+require_once( __DIR__ . '/php/ajax-functions.php');
+include( __DIR__ . '/php/customizer-settings.php');
+
 
 if ( ! function_exists( 'theme_slug_setup' ) ) :
     /**
@@ -131,3 +135,4 @@ if ( ! function_exists( 'theme_slug_setup' ) ) :
     }
 endif;
 add_action( 'after_setup_theme', 'theme_slug_setup' );
+
