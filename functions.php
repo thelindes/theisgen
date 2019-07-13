@@ -14,8 +14,11 @@ function console_log( $data ){
       return $masterSliderNumber;
   }
   
-  function clean( $data , $type ) {
+  function clean( $data , $type, $single ) {
   
+    if($single === false ){
+
+    
       if( $type === "comments" || $type === "slider"){
           if( $type == "comments") {
               $cleaned = substr($data, strpos($data, "<!--"), strpos($data, "-->")+3);
@@ -34,6 +37,15 @@ function console_log( $data ){
           $data = str_replace($type, '', $data);
           return $data; 
       }
+    }
+      if($single === true) {
+        $pos = strpos($data, $type);
+
+        if ($pos !== false && $type !== false) {
+            $data = substr_replace($data, '', $pos, strlen($type));
+        }
+        return $data; 
+      }
   
   }
   
@@ -45,31 +57,37 @@ function console_log( $data ){
      } else {
          $start = '<' . $part . '>';
          $end = '</' .  $part . '>';
-         $result = substr($data, strpos( $data, $start) , strpos($data, $end ) + strlen($part) + 3 );
+
+         if(strpos($data, $start) >= 0)  {
+            $result = substr($data, strpos( $data, $start) , strpos($data, $end ) + strlen($part) + 3 );
+         } else {
+             $result = null;
+         }
      }
          
      return $result;
   }
-  
+
   function get_normalizedText( $data ) {
       $data = str_replace("\r", "", $data);
       $data= str_replace("\n", "", $data);
   
       $data = preg_replace('/[ \t]+/', ' ', preg_replace('/[\r\n]+/', "\n", $data));
+      $data = ltrim( $data );
       return $data;
   }
   
   function get_liAsList( $data ){
       $array = [];
       $iterator = 0;
-      $data = clean($data, "<ul>");
-      $data = clean($data, "</ul>");
+      $data = clean($data, "<ul>", false);
+      $data = clean($data, "</ul>", false);
   
       while($iterator <= 6){
           $li = get_contentPart($data, "li");
-          $data = clean($data, $li);
-          $li = clean($li, "<li>");
-          $li = clean($li, "</li>");
+          $data = clean($data, $li, false);
+          $li = clean($li, "<li>", false);
+          $li = clean($li, "</li>", false);
           $tempObject = []; 
   
           $h3 = get_H3($li);
@@ -78,15 +96,15 @@ function console_log( $data ){
           $img = get_IMG($li);
           $tempObject[1] = get_IMG($li);
   
-          $li = clean($li, $h3);
-          $li = clean($li, $img);
+          $li = clean($li, $h3, false);
+          $li = clean($li, $img, false);
   
           $tempObject[2] = $li;
               $array[$iterator++] = $tempObject;
       }
       return $array;
   }
-  
+
   function get_H3($li) {
       $li = get_normalizedText($li);
       return get_contentPart($li, "h3");
@@ -99,6 +117,95 @@ function console_log( $data ){
           return null;
       }
       return $result;
+  }
+
+  function get_isNext( $data, $type ) {
+    $elementPosition = strpos( $data, $type);
+
+    if($elementPosition === 0 ){
+        return true;
+    } else {
+        return false;
+    }
+}
+
+  function get_RentObject($data) {
+    $data = get_normalizedText($data);
+    $array = [];
+    $iterator = 0;
+    $nextElement = null;
+    
+    $data = clean($data, "<ul>", false);
+    $data = clean($data, "</ul>", false);
+    $length = strlen($data);
+
+    $data = ltrim($data);
+
+    while(0 < $length) {
+        if( get_isNext($data, "<h2>") === true){
+            $nextElement = "h2";
+            $headline = get_contentPart($data, $nextElement);
+            if($headline != null) {
+                $array5 = [];
+                $array5[0] = "h2";
+                $array5[1] = $headline;
+                $array[$iterator++] = $array5;
+                $data = clean($data, $headline, true);
+                $data = get_normalizedText($data);
+                $length = strlen($data);
+            }
+        }
+        if( get_isNext($data, "<h3>") === true){
+            $nextElement = "h3";
+            $headline = get_contentPart($data, $nextElement);
+            if($headline !== null) {
+                $array4 = [];
+                $array4[0] = "h3";
+                $array4[1] = $headline;
+                $array[$iterator++] = $array4;
+                $data = clean($data, $headline, true);
+                $data = get_normalizedText($data);
+                $length = strlen($data);
+            }
+        }
+
+        if( get_isNext($data, "<li>") === true){
+            $nextElement = "li";
+            $li = get_contentPart($data, $nextElement);
+            if($li !== null) {
+                $tempLi = $li;
+                $tempLi = clean($tempLi, "<li>", false);
+                $tempLi = clean($tempLi, "</li>", false);
+                if( get_isNext($tempLi, "<h3>") === true ) {
+                   $localElementType = "h3";
+                    $headline2 = get_contentPart($tempLi, $localElementType);
+                    if($headline2 !== null) {
+                        $array2 = [];
+                        $array2[0] = "h3";
+                        $array2[1] = $headline2;
+                        $array[$iterator++] = $array2;
+                        $data = clean($data, $li, true);
+                        $data = get_normalizedText($data);
+                        $length = strlen($data);
+                    }
+
+                } else {
+                    $tempLi2 = $li;
+                    $tempLi2 = clean($tempLi2, "<li>", false);
+                    $tempLi2 = clean($tempLi2, "</li>", false);
+                    $array3 = [];
+                    $array3[0] = "li";
+                    $array3[1] = $tempLi2;
+                    $array[$iterator++] = $array3;
+                    $data = clean($data, $li, true); 
+                    $data = get_normalizedText($data);
+                    $length = strlen($data);
+                }
+            }
+        }
+    }
+
+    return $array;
   }
 
 // WordPress Titles

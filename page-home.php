@@ -14,13 +14,13 @@ get_header();
 	$content = $this_post->post_content;
 	$content = get_normalizedText($content);
 	$masterSliderNumber = get_SliderId($content);
-	$content = clean ($content, "slider");
+	$content = clean ($content, "slider", false);
 	$servicesHeadline = get_contentPart($content , "h2"); 
 	$services = get_contentPart($content , "ul"); 
 	
 	$servicesList = get_liAsList($services);
-	$subtext = clean($content, $servicesHeadline);
-	$subtext = clean($subtext, $services);
+	$subtext = clean($content, $servicesHeadline, false);
+	$subtext = clean($subtext, $services, false);
 	
 	$welcome_icon = get_field("welcome-icon");
 ?>
